@@ -12,8 +12,8 @@ services:
         soft: -1
         hard: -1
     ports:
-      - 9222:9222
-      - 9322:9322
+      - 9200:9200
+      - 9300:9300
     stdin_open: true
     tty: true
     network_mode: bridge
@@ -30,7 +30,7 @@ services:
         soft: -1
         hard: -1
     ports:
-      - 5501:5501
+      - 5601:5601
     links:
       - elasticsearch:elasticsearch
     depends_on:
@@ -54,7 +54,7 @@ services:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
       - ./logstash.template.json:/usr/share/logstash/templates/logstash.template.json
     ports:
-      - 5144:5144
+      - 5044:5044
     links:
       - elasticsearch:elasticsearch
     depends_on:
